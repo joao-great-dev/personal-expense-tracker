@@ -241,8 +241,9 @@ function AddExpenseForm({
   const parsedAmount = Number(amount);
 
   useEffect(() => {
-    if (!categoryId && categories.length > 0) {
-      setCategoryId(categories[0].categoryId);
+    if (!categoryId) {
+      const first = categories.at(0);
+      if (first) setCategoryId(first.categoryId);
     }
   }, [categories, categoryId]);
 
